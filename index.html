@@ -244,13 +244,24 @@
     transition:background .3s;
   }
   .frame-card:hover{ background:#fff; }
-  .frame-card svg{
-    width:100%; height:auto; display:block;
-    transition:filter .3s, transform .3s;
+  .frame-photo{
+    overflow:hidden; aspect-ratio:1/1; background:#fff;
+    transition:transform .35s ease, box-shadow .35s ease;
   }
-  .frame-card:hover svg{
-    transform:rotate(-2deg);
-    filter:drop-shadow(3px 0 0 rgba(255,0,80,0.4)) drop-shadow(-3px 0 0 rgba(0,130,255,0.4));
+  .frame-photo img{
+    width:100%; height:100%; object-fit:cover; display:block;
+    animation:frameDrift 16s ease-in-out infinite alternate;
+  }
+  .frame-card:nth-child(2) .frame-photo img{ animation-delay:-4s; }
+  .frame-card:nth-child(3) .frame-photo img{ animation-delay:-8s; }
+  .frame-card:nth-child(4) .frame-photo img{ animation-delay:-12s; }
+  @keyframes frameDrift{
+    from{ transform:scale(1.05) translate(-1.2%, 1%); }
+    to{ transform:scale(1.14) translate(1.2%, -1.4%); }
+  }
+  .frame-card:hover .frame-photo{
+    transform:translateY(-4px);
+    box-shadow:0 16px 36px rgba(20,23,26,0.14);
   }
   .frame-meta{ display:flex; justify-content:space-between; align-items:baseline; gap:1rem; }
   .frame-meta h3{ font-size:1.35rem; font-weight:600; }
@@ -458,56 +469,25 @@
     <div class="frames-grid">
 
       <div class="frame-card reveal">
-        <svg viewBox="0 0 340 130" role="img" aria-label="Round panto frame illustration">
-          <defs>
-            <linearGradient id="tintA" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stop-color="#3F9E77" stop-opacity="0.10"/>
-              <stop offset="1" stop-color="#8B7BE8" stop-opacity="0.10"/>
-            </linearGradient>
-          </defs>
-          <circle cx="100" cy="70" r="46" fill="url(#tintA)" stroke="#14171A" stroke-width="3"/>
-          <circle cx="240" cy="70" r="46" fill="url(#tintA)" stroke="#14171A" stroke-width="3"/>
-          <path d="M146 62 Q170 46 194 62" fill="none" stroke="#14171A" stroke-width="3"/>
-          <path d="M54 62 L20 52" fill="none" stroke="#14171A" stroke-width="3" stroke-linecap="round"/>
-          <path d="M286 62 L320 52" fill="none" stroke="#14171A" stroke-width="3" stroke-linecap="round"/>
-        </svg>
+        <div class="frame-photo"><img src="images/1.jpg" alt="Chow Yang frames in sage green and brown metal" loading="lazy"></div>
         <div class="frame-meta"><h3>Chow Yang</h3><span class="price">RM 640</span></div>
         <div class="frame-spec"><span>47&#9633;22&ndash;145</span><span>MATTE ACETATE</span><span>PANTO ROUND</span></div>
       </div>
 
       <div class="frame-card reveal">
-        <svg viewBox="0 0 340 130" role="img" aria-label="Rectangular frame illustration">
-          <rect x="42" y="34" width="110" height="70" rx="12" fill="url(#tintA)" stroke="#14171A" stroke-width="3"/>
-          <rect x="188" y="34" width="110" height="70" rx="12" fill="url(#tintA)" stroke="#14171A" stroke-width="3"/>
-          <path d="M152 52 Q170 42 188 52" fill="none" stroke="#14171A" stroke-width="3"/>
-          <path d="M42 50 L12 42" fill="none" stroke="#14171A" stroke-width="3" stroke-linecap="round"/>
-          <path d="M298 50 L328 42" fill="none" stroke="#14171A" stroke-width="3" stroke-linecap="round"/>
-        </svg>
+        <div class="frame-photo"><img src="images/2.jpg" alt="Sea Park wire metal frames in gold, silver and rose tones" loading="lazy"></div>
         <div class="frame-meta"><h3>Sea Park</h3><span class="price">RM 720</span></div>
         <div class="frame-spec"><span>52&#9633;19&ndash;148</span><span>BRUSHED TITANIUM</span><span>RECTANGLE</span></div>
       </div>
 
       <div class="frame-card reveal">
-        <svg viewBox="0 0 340 130" role="img" aria-label="Cat-eye frame illustration">
-          <path d="M40 56 Q66 34 108 40 Q152 48 150 76 Q146 106 104 104 Q56 102 40 56 Z" fill="url(#tintA)" stroke="#14171A" stroke-width="3"/>
-          <path d="M300 56 Q274 34 232 40 Q188 48 190 76 Q194 106 236 104 Q284 102 300 56 Z" fill="url(#tintA)" stroke="#14171A" stroke-width="3"/>
-          <path d="M150 62 Q170 52 190 62" fill="none" stroke="#14171A" stroke-width="3"/>
-          <path d="M44 52 L14 40" fill="none" stroke="#14171A" stroke-width="3" stroke-linecap="round"/>
-          <path d="M296 52 L326 40" fill="none" stroke="#14171A" stroke-width="3" stroke-linecap="round"/>
-        </svg>
+        <div class="frame-photo"><img src="images/3.jpg" alt="Paramount acetate frames in tortoise, olive and smoke" loading="lazy"></div>
         <div class="frame-meta"><h3>Paramount</h3><span class="price">RM 780</span></div>
         <div class="frame-spec"><span>50&#9633;20&ndash;142</span><span>TORTOISE ACETATE</span><span>CAT-EYE</span></div>
       </div>
 
       <div class="frame-card reveal">
-        <svg viewBox="0 0 340 130" role="img" aria-label="Aviator frame illustration">
-          <path d="M46 44 Q100 32 148 46 Q152 92 112 104 Q60 112 46 44 Z" fill="url(#tintA)" stroke="#14171A" stroke-width="3"/>
-          <path d="M294 44 Q240 32 192 46 Q188 92 228 104 Q280 112 294 44 Z" fill="none" stroke="#14171A" stroke-width="3"/>
-          <path d="M148 52 Q170 44 192 52" fill="none" stroke="#14171A" stroke-width="3"/>
-          <path d="M148 60 Q170 54 192 60" fill="none" stroke="#14171A" stroke-width="2"/>
-          <path d="M48 48 L16 40" fill="none" stroke="#14171A" stroke-width="3" stroke-linecap="round"/>
-          <path d="M292 48 L324 40" fill="none" stroke="#14171A" stroke-width="3" stroke-linecap="round"/>
-        </svg>
+        <div class="frame-photo"><img src="images/4.jpg" alt="Damansara gold and silver wire frames" loading="lazy"></div>
         <div class="frame-meta"><h3>Damansara</h3><span class="price">RM 690</span></div>
         <div class="frame-spec"><span>55&#9633;18&ndash;150</span><span>GOLD WIRE</span><span>AVIATOR</span></div>
       </div>

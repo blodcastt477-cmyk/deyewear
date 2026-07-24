@@ -22,10 +22,11 @@ JSON-LD block in `<head>` and with the Google Business Profile.
 
 ## Running Locally
 
-No build, lint, or test tooling — plain HTML/CSS/JS with no dependencies and
-no binary assets (all graphics are inline SVG). Serve over HTTP (e.g.
+No build, lint, or test tooling — plain HTML/CSS/JS with no dependencies.
+Binary assets are the four frame photos in `images/` (compressed JPEGs);
+everything else is inline SVG. Serve over HTTP (e.g.
 `python -m http.server 5500`) rather than opening the file directly, since it
-loads Google Fonts.
+loads Google Fonts and the photos by relative path.
 
 ## Architecture
 
@@ -43,9 +44,11 @@ don't split out CSS/JS files.
   reveals sharp text. Blur and sharp layers duplicate the same copy — edit both.
   Touch devices get an auto-drifting lens; reduced motion disables the effect
   via the `.lens-off` class.
-- Other graphic set pieces: prescription ticker, SVG frame illustrations with
-  real temple measurements (e.g. `47□22–145`), lens cross-section diagram,
-  Snellen eye chart where copy shrinks by acuity row, red/green duochrome strip.
+- Other graphic set pieces: prescription ticker, frame photo cards
+  (`.frame-photo`, ken-burns `frameDrift` animation with staggered delays)
+  listing real temple measurements (e.g. `47□22–145`), lens cross-section
+  diagram, Snellen eye chart where copy shrinks by acuity row, red/green
+  duochrome strip.
 - WhatsApp CTAs (hero and Visit section) link to `wa.me/60173319576` with a
   pre-filled message.
 
